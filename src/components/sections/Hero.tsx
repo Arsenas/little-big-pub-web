@@ -20,6 +20,23 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, [index]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll("section").forEach((sec) => observer.observe(sec));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="hero" className="lbp-hero">
       <img key={prevIndex + "-old"} src={images[prevIndex]} className="lbp-hero-bg hero-exit" alt="Background" />

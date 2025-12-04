@@ -49,7 +49,9 @@ const Footer = () => {
 
       <div className="lbp-footer-bottom">
         <span>© {new Date().getFullYear()} Little Big Pub, Vilnius</span>
-        <span>drinks • food • fireplace</span>
+        <a href="https://arsenij.dev" target="_blank" rel="noreferrer" className="lbp-dev">
+          arsenij.dev
+        </a>
       </div>
     </footer>
   );

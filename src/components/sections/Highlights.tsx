@@ -25,8 +25,30 @@ const Highlights = () => {
     return () => window.removeEventListener("keydown", handler);
   }, [index]);
 
+  useEffect(() => {
+    if (index !== null) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+
+    return () => document.body.classList.remove("no-scroll");
+  }, [index]);
+
+  useEffect(() => {
+    const body = document.body;
+
+    if (index !== null) {
+      body.classList.add("no-scroll", "lightbox-open-global");
+    } else {
+      body.classList.remove("no-scroll", "lightbox-open-global");
+    }
+
+    return () => body.classList.remove("no-scroll", "lightbox-open-global");
+  }, [index]);
+
   return (
-    <section id="highlights" className="lbp-section lbp-highlights">
+    <section id="highlights" className={`lbp-section lbp-highlights ${index !== null ? "lightbox-open" : ""}`}>
       <div className="lbp-section-inner">
         <div className="section-title-line">
           <span>Iš Pub'o Gyvenimo</span>

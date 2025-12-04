@@ -31,15 +31,26 @@ const ContactUs = () => {
 
         {/* RIGHT COLUMN — FORM */}
         <form className="contact-form" onSubmit={handleSubmit}>
-          <input type="text" name="name" placeholder="Jūsų vardas" required value={form.name} onChange={handleChange} />
+          <input
+            type="text"
+            name="name"
+            placeholder="Jūsų vardas"
+            required
+            autoComplete="name"
+            value={form.name}
+            onChange={handleChange}
+            aria-label="Jūsų vardas"
+          />
 
           <input
             type="email"
             name="email"
             placeholder="El. paštas"
             required
+            autoComplete="email"
             value={form.email}
             onChange={handleChange}
+            aria-label="El. paštas"
           />
 
           <input
@@ -47,8 +58,10 @@ const ContactUs = () => {
             name="phone"
             placeholder="Telefono numeris"
             required
+            autoComplete="tel"
             value={form.phone}
             onChange={handleChange}
+            aria-label="Telefono numeris"
           />
 
           <textarea
@@ -58,9 +71,10 @@ const ContactUs = () => {
             required
             value={form.message}
             onChange={handleChange}
+            aria-label="Žinutė"
           ></textarea>
 
-          <button type="submit" className="lbp-btn lbp-btn-primary contact-submit">
+          <button type="submit" className="lbp-btn lbp-btn-primary contact-submit" aria-label="Siųsti užklausą">
             Siųsti užklausą
           </button>
 
